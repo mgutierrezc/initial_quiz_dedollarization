@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Question {{ player.quiz_page_counter }}
+{% endblock %}
+
+{% block content %}
+    <p> {{ question }} </p>
+
+    <p><font color=#b94a48> You have run out of time. The correct answer is "{{ answer }}".</p>
+    </font>
+    
+    {% next_button %}
+
+{% endblock %}

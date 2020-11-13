@@ -1,0 +1,52 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block app_styles %}
+<style>
+    .otree-form-errors {
+        display: none;
+    }
+</style>
+{% endblock %}
+
+{% block title %}
+{% if language == 0 %}
+    Quiz Results
+{% else %}
+
+{% endif %}
+    Resultados
+{% endblock %}
+
+{% block content %}
+<font color="burlywood"><h4 align="right">Tu etiqueta: {{ participant_id }}</h4></font>
+<br>
+{% if language == 0 %}
+    <p>You have completed the quiz.</p>
+
+    <p>You answered {{ player.num_correct }} out of 4 questions correctly.</p>
+    
+    <p>Therefore, you earned {{ dollar_amount }} from this quiz.</p>
+
+    <p>By clicking the "Next" button below, you will begin the task.</p>
+
+    <br>
+{% else %}
+    <p>Gracias. Has completado el quiz.</p>
+
+    <p>Has respondido {{ player.num_correct }} de 4 preguntas correctamente.</p>
+
+    <p>Entonces, has ganado {{ quiz_earnings }} en este quiz.</p>
+
+    <p>Al dar click al botón "Siguiente", comenzarás la tarea o interacción principal.</p>
+
+    <br>
+{% endif %}
+
+    <input type="hidden" name="quiz_dec_2"/>
+    {{ form.quiz_dec_2.errors }}
+    {% next_button %}
+
+<br><br>
+{% include Constants.contact_template %}
+{% endblock %}

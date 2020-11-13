@@ -1,0 +1,70 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Instrucciones
+{% endblock %}
+
+{% block content %}
+{% include Constants.instructions_template %}
+
+<h3>Quiz de entendimiento</h3>
+<p>
+En las siguientes pantallas, responderás un breve un cuestionario para determinar tu entendimiento de estas
+    instrucciones.
+Recibirás 5 puntos por cada pregunta correcta. Las ganancias que obtengas aquí se sumarán a las obtenidas
+    en la tarea.
+</p>
+
+{###############################}
+<br><hr><br>
+
+<h3>Información Importante para Experimento en Línea</h3>
+<br>
+
+<h4>Código de Participante</h4>
+<p>
+Para que podamos identificarte durante el experimento, realizar los pagos correspondientes o responder alguna consulta,
+te hemos asignado el siguiente código o etiqueta de participante:
+<br>
+    <h4 style="color:#0000ff" align="center">{{ participant_id }}</h4>
+<br>
+Es importante que tengas este código a la mano, así que apúntalo o tómale foto. Asimismo, lo podrás observar en el
+extremo superior derecho de cada página subsiguiente.
+</p>
+<br>
+<h4>Contacto</h4>
+<p>
+    Si tienes un problema o pregunta, no dudes en contactarnos a este número por WhatsApp o llamada al
+    <a href="https://wa.me/0051985730063" target="_blank">+51 985 730 063</a>.
+    Este número también estará en todas las pantallas debajo del botón siguiente.
+</p>
+<br>
+    <h4>Tiempos de decisión y de espera</h4>
+<p>
+    Dado que algunas personas demoran en conectarse la primera pantalla puede demorar varios minutos
+    (en algunas ocaciones más de 10 minutos). Te agradecemos ser paciente.
+    La duración esperada del experimento, de entre 50 y 70 minutos, ya toma en cuenta esta espera.
+    Es decir, pese a la espera inicial, el experimento va a culminar en ese plazo casi con seguridad.
+    Cada pantalla de decisión vas a tener un límite de un minuto para contestar. Por favor, estate alerta cuando sea
+    tu turno de decidir. Piensa tus decisiones pero no tomes mucho tiempo porque los participantes de tu grupo están esperando.
+
+</p>
+<br>
+    <h4>Información de Pago</h4>
+<p>
+La última página del experimento contiene un enlace a un formulario donde registrarás la información para efectuar tu pago.
+Debes tener a la mano los datos asociados al método con el que deseas que te hagamos el pago:
+(i) un número y nombre asociados a un aplicativo móvil de pago: Yape (BCP), Lukita (BBVA) o Tunki (Interbank); o
+(ii) un número cuenta o CCI con el nombre del titular para recibir una transferencia bancaria o interbancaria. Debes llegar
+    a la última página para poder contar la información para poder pagarte.
+
+</p>
+
+<br>
+
+    {% next_button %}
+
+<br>
+{% include Constants.contact_template %}
+{% endblock %}

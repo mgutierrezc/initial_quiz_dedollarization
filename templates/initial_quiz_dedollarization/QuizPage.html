@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block app_styles %}
+<style>
+    .otree-form-errors {
+        display: none;
+    }
+</style>
+{% endblock %}
+
+
+{% block title %}
+{% if language == 0 %}
+    Question {{ page_number }}
+{% else %}
+    Pregunta {{ page_number }}
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+<font color="burlywood"><h4 align="right">Tu etiqueta: {{ participant_id }}</h4></font>
+<br>
+{% if language == 0 %}
+    <p>{{ question }}</p>
+{% else %}
+    <p>{{ pregunta }}</p>
+{% endif %}
+
+    {% formfields %}
+
+{% if player.q_incorrect_attempts > 0 %}
+    {% if language == 0 %}
+        <p><font color=#b94a48>{{ incorrect_answer }}</p>
+        </font>
+    {% else %}
+        <p><font color=#b94a48>{{ respuesta_incorrecta }}</p>
+        </font>
+    {% endif %}
+{% endif %}
+
+    {% next_button %}
+
+<br><br>
+{% include Constants.contact_template %}
+{% endblock %}
