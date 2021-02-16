@@ -52,7 +52,7 @@ class Constants(BaseConstants):
 
     preguntas_quiz = ['¿A qué grupo perteneces?',
                       '¿Durante el juego, en qué casos cambias de grupo?',
-                      '¿En qué caso es posible intercambiar de objeto con tu socio?',
+                      '¿En cuál de los siguientes casos es posible el intercambio?',
                       '¿Cuántos puntos obtendrás si decides mantener el bien de consumo durante una ronda adicional?']
 
     # Displayed answers
