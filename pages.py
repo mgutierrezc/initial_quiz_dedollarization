@@ -45,9 +45,10 @@ class GeneralRules(Page):
 
 
 class Introduction(Page):
+
     def vars_for_template(self):
         exchange_rate = self.session.config['real_world_currency_per_point']
-        # If you don't create a session inside a room, there won't be any label, but a participant unique code only
+        players_per_group = Constants.players_per_group
         foreign_tax = self.session.config['foreign_tax']
         perc_f_tax_consumer = self.session.config['percent_foreign_tax_consumer']
         perc_f_tax_producer = self.session.config['percent_foreign_tax_producer']
@@ -57,26 +58,25 @@ class Introduction(Page):
 
         # Treatment variable: 0 if baseline, 1 if tax treatment, 2 if cost treatment, 3 show foreign trans treatment
         # Baseline Treatment
-        treatment = 0
-        # Tax Treatment
-        if perc_f_tax_consumer != 0 and perc_f_tax_producer != 0 and foreign_tax != 0:
-            treatment = 1
-        # 2 Cost Treatment
-        elif store_cost_hom != 0 or store_cost_het != 0:
-            treatment = 2
-        # 3 Show Foreign Trans Treatment
-        elif show_foreign_transactions is True:
-            treatment = 3
+        perc_taxes = False
+        storage_costs = False
 
-        return dict(participant_id=self.participant.label,
-                    exchange_rate=exchange_rate,
+        # Tax Treatment
+        if perc_f_tax_consumer != 0 or perc_f_tax_producer != 0:
+            perc_taxes = True
+        # 2 Cost Treatment
+        if store_cost_hom != 0 or store_cost_het != 0:
+            storage_costs = True
+
+        tax_producer = perc_f_tax_producer * foreign_tax
+        tax_consumer = perc_f_tax_consumer * foreign_tax
+
+        return dict(participant_id=self.participant.label, exchange_rate=exchange_rate, players_per_group=players_per_group,
                     perc_f_tax_consumer=perc_f_tax_consumer,
-                    perc_f_tax_producer=perc_f_tax_producer,
-                    foreign_tax=foreign_tax,
-                    store_cost_hom=store_cost_hom,
-                    store_cost_het=store_cost_het,
-                    show_foreign_transactions=show_foreign_transactions,
-                    treatment=treatment)
+                    perc_f_tax_producer=perc_f_tax_producer, foreign_tax=foreign_tax, store_cost_hom=store_cost_hom,
+                    store_cost_het=store_cost_het, show_foreign_transactions=show_foreign_transactions,
+                    perc_taxes=perc_taxes, storage_costs=storage_costs,
+                    tax_producer=tax_producer, tax_consumer=tax_consumer)
 
 
 class QuizPage(Page):
