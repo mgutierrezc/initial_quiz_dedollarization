@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Página de bienvenida
+{% endblock %}
+
+{% block content %}
+
+<ul>
+    <li>Bienvenido al Laboratorio de Economía Experimental de la Universidad del Pacífico. 
+        Gracias por participar en este estudio.</li>
+    <li>El experimento que verá a continuación se está realizando con el apoyo oficial del E2LabUP y 
+        cuenta con la aprobación ética de la universidad.</li>
+    <li>Está prohibido el uso de este logo sin autorización del laboratorio.
+    </li>
+</ul>
+<img align="center" height="30%" width="30%" src="{% static "logo_e2labup.png"%}"/>
+<br><br>
+    {% next_button %}
+
+<br>
+{% include Constants.contact_template %}
+{% endblock %}

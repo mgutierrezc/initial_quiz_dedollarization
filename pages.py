@@ -39,6 +39,8 @@ Output:
 
 # Por lo demás, ya funciona este quiz
 
+class InitialPage(Page):
+    pass
 
 class GeneralRules(Page):
     pass
@@ -198,6 +200,7 @@ class QuizTimeout(Page):
 
 # DYNAMIC QUIZ WITH TIMEOUTS
 page_sequence = [
+    InitialPage,
     GeneralRules,
     Introduction,
     QuizPage,
