@@ -70,8 +70,8 @@ class Introduction(Page):
         if store_cost_hom != 0 or store_cost_het != 0:
             storage_costs = True
 
-        tax_producer = perc_f_tax_producer * foreign_tax
-        tax_consumer = perc_f_tax_consumer * foreign_tax
+        tax_producer = round(perc_f_tax_producer, 1) * foreign_tax
+        tax_consumer = round(perc_f_tax_consumer, 1) * foreign_tax
 
         return dict(participant_id=self.participant.label, exchange_rate=exchange_rate, players_per_group=players_per_group,
                     perc_f_tax_consumer=perc_f_tax_consumer,
