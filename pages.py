@@ -70,6 +70,9 @@ class Introduction(Page):
         elif show_foreign_transactions is True:
             treatment = 3
 
+        tax_producer = round(perc_f_tax_producer, 1) * foreign_tax
+        tax_consumer = round(perc_f_tax_consumer, 1) * foreign_tax
+
         return dict(participant_id=self.participant.label,
                     exchange_rate=exchange_rate,
                     perc_f_tax_consumer=perc_f_tax_consumer,
@@ -78,7 +81,9 @@ class Introduction(Page):
                     store_cost_hom=store_cost_hom,
                     store_cost_het=store_cost_het,
                     show_foreign_transactions=show_foreign_transactions,
-                    treatment=treatment)
+                    treatment=treatment,
+                    tax_producer=tax_producer,
+                    tax_consumer=tax_consumer)
 
 
 class QuizPage(Page):
