@@ -33,6 +33,8 @@ class Constants(BaseConstants):
     # """Amount allocated to each player"""
     endowment = c(10)
     multiplier = 2
+    timeout_penalty = c(4)
+    no_payment_timeouts = 15 # after this number of timeouts, payment will be 0
 
     '''Quiz Answers'''
     # TODO: Edit questions and answers (coded and displayed answers)
